@@ -33,8 +33,19 @@ module.exports = {
 
       const theCourses = typeof courses !== 'object' ? [courses] : [...courses];
       if (theCourses[0]) {
-        const coursesIds = await CoursesModel.find({}, '_id');
-        const newParticipantCourses = [...courses];
+        let coursesIds = await CoursesModel.find({}, '_id');
+
+        if (coursesIds === null) {
+          res.status(404);
+          res.json({
+            status: 'error',
+            message: 'No course found.',
+          });
+          return;
+        }
+
+        coursesIds = coursesIds.map((item) => item._id.toString());
+        const newParticipantCourses = [...theCourses];
 
         newParticipantCourses.forEach((item) => {
           if (!coursesIds.includes(item)) {
