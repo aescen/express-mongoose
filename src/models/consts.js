@@ -1,0 +1,15 @@
+const CONSTS = {
+  INSTRUCTORS: 'instructors',
+  COURSES: 'courses',
+  PARTICIPANTS: 'participants',
+  MIN_NAME_CHARS: 1,
+  MAX_NAME_CHARS: 100,
+  MIN_TITLE_CHARS: 1,
+  MAX_TITLE_CHARS: 50,
+  MIN_DESCRIPTION_CHARS: 1,
+  MAX_DESCRIPTION_CHARS: 500,
+  MAX_EMAIL_CHARS: 50,
+  MAX_PHONE_CHARS: 13,
+};
+
+module.exports = CONSTS;
